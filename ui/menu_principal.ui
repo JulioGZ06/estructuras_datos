@@ -154,12 +154,20 @@ QStatusBar {
       <string>Lineales</string>
      </property>
      <addaction name="actionLista_Enlazada"/>
+     <addaction name="actionPila"/>
     </widget>
     <addaction name="menu1_Insertar_inicio"/>
     <addaction name="separator"/>
     <addaction name="action5_Salir"/>
    </widget>
+   <widget class="QMenu" name="menuAplicacion">
+    <property name="title">
+     <string>Aplicacion</string>
+    </property>
+    <addaction name="actionConversion_Infija_Posfija"/>
+   </widget>
    <addaction name="menuLista_Enlazada"/>
+   <addaction name="menuAplicacion"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="action2_Insertar_final">
@@ -185,6 +193,16 @@ QStatusBar {
   <action name="actionLista_Enlazada">
    <property name="text">
     <string>Lista Enlazada</string>
+   </property>
+  </action>
+  <action name="actionPila">
+   <property name="text">
+    <string>Pila</string>
+   </property>
+  </action>
+  <action name="actionConversion_Infija_Posfija">
+   <property name="text">
+    <string>Conversion Infija-Posfija</string>
    </property>
   </action>
  </widget>

@@ -1,12 +1,11 @@
-import sys
 from PyQt5.QtWidgets import QApplication
+import sys
 
 from load.load_menu_principal import MenuPrincipal
 
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
+app = QApplication(sys.argv)
 
-    ventana = MenuPrincipal()
-    ventana.show()
+ventana = MenuPrincipal()
+ventana.show()
 
-    sys.exit(app.exec_())
+sys.exit(app.exec_())

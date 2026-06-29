@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>796</width>
+    <height>369</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* =========================
+   QDialog - World Cup Dark
+   ========================= */
+QDialog {
+    background-color: #121212;
+    border: 2px solid #C9A227;
+    border-radius: 15px;
+}
+
+/* =========================
+   QLabel
+   ========================= */
+QLabel {
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: bold;
+    background: transparent;
+}
+
+/* Títulos */
+QLabel#titulo {
+    color: #C9A227;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+/* =========================
+   QLineEdit
+   ========================= */
+QLineEdit {
+    background-color: #1E1E1E;
+    color: #FFFFFF;
+    border: 2px solid #2E8B57;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 14px;
+    selection-background-color: #C9A227;
+}
+
+QLineEdit:focus {
+    border: 2px solid #C9A227;
+    background-color: #252525;
+}
+
+/* =========================
+   QPushButton
+   ========================= */
+QPushButton {
+    background-color: #006847;
+    color: white;
+    border: 2px solid #C9A227;
+    border-radius: 10px;
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #008F5A;
+    border: 2px solid #FFD700;
+}
+
+QPushButton:pressed {
+    background-color: #004D33;
+    padding-top: 10px;
+}
+
+/* Botón principal */
+QPushButton#btnPrincipal {
+    background-color: #C9A227;
+    color: #121212;
+    border: 2px solid #FFD700;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+QPushButton#btnPrincipal:hover {
+    background-color: #FFD700;
+}
+
+/* =========================
+   ToolTips
+   ========================= */
+QToolTip {
+    background-color: #1E1E1E;
+    color: white;
+    border: 1px solid #C9A227;
+    padding: 5px;
+}</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>110</y>
+     <width>111</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Expresion infija:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txt_expresion">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>100</y>
+     <width>561</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_calcular">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>170</y>
+     <width>91</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Calcular</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_resultado">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>220</y>
+     <width>631</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Resultado...</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
