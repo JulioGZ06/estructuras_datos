@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>796</width>
-    <height>369</height>
+    <height>446</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -134,8 +134,8 @@ QToolTip {
   <widget class="QPushButton" name="btn_calcular">
    <property name="geometry">
     <rect>
-     <x>360</x>
-     <y>170</y>
+     <x>180</x>
+     <y>180</y>
      <width>91</width>
      <height>41</height>
     </rect>
@@ -147,9 +147,9 @@ QToolTip {
   <widget class="QLabel" name="lbl_resultado">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>220</y>
-     <width>631</width>
+     <x>20</x>
+     <y>240</y>
+     <width>391</width>
      <height>81</height>
     </rect>
    </property>
@@ -158,6 +158,35 @@ QToolTip {
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_evaluacion">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>240</y>
+     <width>341</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Resultado...</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_evaluar">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>180</y>
+     <width>111</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Evaluar</string>
    </property>
   </widget>
  </widget>

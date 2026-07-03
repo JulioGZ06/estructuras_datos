@@ -14,8 +14,11 @@ class MenuConversionInfijaPosfija(QDialog):
         # Objeto que realiza la conversión
         self.conversion = ConversionInfijaPosfija()
 
-        # Evento del botón
+        # Evento del botón Calcular
         self.btn_calcular.clicked.connect(self.calcular)
+
+        # Evento del botón Evaluar
+        self.btn_evaluar.clicked.connect(self.evaluar)
 
     def calcular(self):
 
@@ -25,6 +28,21 @@ class MenuConversionInfijaPosfija(QDialog):
             self.lbl_resultado.setText("Ingrese una expresión")
             return
 
-        resultado = self.conversion.convertir(expresion)
+        posfija = self.conversion.convertir(expresion)
 
-        self.lbl_resultado.setText(resultado)
+        self.lbl_resultado.setText(posfija)
+
+        # Limpia el resultado anterior
+        self.lbl_evaluacion.setText("")
+
+    def evaluar(self):
+
+        posfija = self.lbl_resultado.text()
+
+        if posfija == "" or posfija == "Ingrese una expresión":
+            self.lbl_evaluacion.setText("No hay expresión para evaluar")
+            return
+
+        resultado = self.conversion.evaluar_posfija(posfija)
+
+        self.lbl_evaluacion.setText(str(resultado))

@@ -64,3 +64,44 @@ class ConversionInfijaPosfija:
             resultado += self.pila.pop()
 
         return resultado
+        # Evalúa una expresión posfija
+    def evaluar_posfija(self, expresion):
+
+        # Vaciar la pila por si contiene datos anteriores
+        while not self.pila.is_empty():
+            self.pila.pop()
+
+        for caracter in expresion:
+
+            # Ignorar espacios
+            if caracter == " ":
+                continue
+
+            # Si es un número
+            if caracter.isdigit():
+                self.pila.push(int(caracter))
+
+            # Si es un operador
+            elif self.es_operador(caracter):
+
+                operador2 = self.pila.pop()
+                operador1 = self.pila.pop()
+
+                if caracter == "+":
+                    resultado = operador1 + operador2
+
+                elif caracter == "-":
+                    resultado = operador1 - operador2
+
+                elif caracter == "*":
+                    resultado = operador1 * operador2
+
+                elif caracter == "/":
+                    resultado = operador1 / operador2
+
+                elif caracter == "$":
+                    resultado = operador1 ** operador2
+
+                self.pila.push(resultado)
+
+        return self.pila.pop()
