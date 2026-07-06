@@ -155,6 +155,7 @@ QStatusBar {
      </property>
      <addaction name="actionLista_Enlazada"/>
      <addaction name="actionPila"/>
+     <addaction name="actionQueue"/>
     </widget>
     <addaction name="menu1_Insertar_inicio"/>
     <addaction name="separator"/>
@@ -203,6 +204,11 @@ QStatusBar {
   <action name="actionConversion_Infija_Posfija">
    <property name="text">
     <string>Conversion Infija-Posfija</string>
+   </property>
+  </action>
+  <action name="actionQueue">
+   <property name="text">
+    <string>Queue</string>
    </property>
   </action>
  </widget>

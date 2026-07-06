@@ -3,7 +3,8 @@ from PyQt5 import uic
 
 from load.load_lista_enlazada_simple import MenuListaEnlazada
 from load.load_pila import MenuPila
-from load.load_conversion_infija_posfija import MenuConversionInfijaPosfija   
+from load.load_conversion_infija_posfija import MenuConversionInfijaPosfija 
+from load.load_queue import MenuQueue  
 
 
 class MenuPrincipal(QMainWindow):
@@ -23,10 +24,15 @@ class MenuPrincipal(QMainWindow):
         self.actionConversion_Infija_Posfija.triggered.connect(
             self.abrir_conversion
         )
+        
+        self.actionQueue.triggered.connect(
+            self.abrir_queue
+        )
 
         self.action5_Salir.triggered.connect(
             self.close
         )
+        
 
     def abrir_lista_enlazada(self):
         self.ventana_lista = MenuListaEnlazada()
@@ -39,3 +45,7 @@ class MenuPrincipal(QMainWindow):
     def abrir_conversion(self):
         self.ventana_conversion = MenuConversionInfijaPosfija()
         self.ventana_conversion.show()
+        
+    def abrir_queue(self):
+        self.ventana_queue = MenuQueue()
+        self.ventana_queue.show()
