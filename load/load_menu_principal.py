@@ -5,7 +5,7 @@ from load.load_lista_enlazada_simple import MenuListaEnlazada
 from load.load_pila import MenuPila
 from load.load_conversion_infija_posfija import MenuConversionInfijaPosfija 
 from load.load_queue import MenuQueue  
-
+from load.load_banco import MenuBanco
 
 class MenuPrincipal(QMainWindow):
     def __init__(self):
@@ -16,6 +16,7 @@ class MenuPrincipal(QMainWindow):
         self.actionLista_Enlazada.triggered.connect(
             self.abrir_lista_enlazada
         )
+        
 
         self.actionPila.triggered.connect(
             self.abrir_pila
@@ -27,6 +28,10 @@ class MenuPrincipal(QMainWindow):
         
         self.actionQueue.triggered.connect(
             self.abrir_queue
+        )
+        
+        self.actionBanco.triggered.connect(
+            self.abrir_banco
         )
 
         self.action5_Salir.triggered.connect(
@@ -49,3 +54,7 @@ class MenuPrincipal(QMainWindow):
     def abrir_queue(self):
         self.ventana_queue = MenuQueue()
         self.ventana_queue.show()
+        
+    def abrir_banco(self):
+        self.ventana_banco = MenuBanco()
+        self.ventana_banco.show()
