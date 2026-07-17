@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MenuImpresion</class>
+ <widget class="QDialog" name="MenuImpresion">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>758</width>
+    <height>643</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Cola de Impresión</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* Ventana principal */
+QDialog {
+    background-color: #F4F7FB;
+    border-radius: 12px;
+}
+
+/* Etiquetas */
+QLabel {
+    color: #1F2937;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* Campos de texto */
+QLineEdit {
+    background-color: white;
+    border: 2px solid #D1D5DB;
+    border-radius: 8px;
+    padding: 6px;
+    font-size: 13px;
+    color: #111827;
+}
+
+QLineEdit:focus {
+    border: 2px solid #2563EB;
+}
+
+
+/* Área de cola */
+QPlainTextEdit {
+    background-color: white;
+    border: 2px solid #CBD5E1;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 13px;
+    color: #111827;
+}
+
+
+/* Botones */
+QPushButton {
+    background-color: #2563EB;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 15px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+QPushButton:hover {
+    background-color: #1D4ED8;
+}
+
+
+QPushButton:pressed {
+    background-color: #1E40AF;
+}
+
+
+/* Botón imprimir diferente */
+#btn_imprimir {
+    background-color: #059669;
+}
+
+#btn_imprimir:hover {
+    background-color: #047857;
+}
+
+
+/* Botón consultar frente */
+#btn_frente {
+    background-color: #F59E0B;
+}
+
+#btn_frente:hover {
+    background-color: #D97706;
+}
+
+
+/* Labels de información */
+#lbl_total,
+#lbl_frente,
+#lbl_mensaje {
+    background-color: white;
+    border-radius: 8px;
+    padding: 6px;
+    border: 1px solid #E5E7EB;
+    color: #374151;
+}
+
+
+/* Título de secciones */
+#label,
+#label_2,
+#label_3,
+#label_4 {
+    color: #1E3A8A;
+    font-size: 14px;
+}</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>20</y>
+     <width>100</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Usuario</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txt_usuario">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>10</y>
+     <width>220</width>
+     <height>41</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>70</y>
+     <width>100</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Documento</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txt_documento">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>60</y>
+     <width>220</width>
+     <height>41</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>120</y>
+     <width>100</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Páginas</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="txt_paginas">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>110</y>
+     <width>80</width>
+     <height>41</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_agregar">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>14</y>
+     <width>150</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Agregar a la cola</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_imprimir">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>70</y>
+     <width>150</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Imprimir siguiente</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_frente">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>124</y>
+     <width>150</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Consultar frente</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>160</y>
+     <width>200</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Trabajos pendientes</string>
+   </property>
+  </widget>
+  <widget class="QPlainTextEdit" name="txt_cola">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>190</y>
+     <width>700</width>
+     <height>250</height>
+    </rect>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_total">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>460</y>
+     <width>250</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Trabajos pendientes: 0</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_frente">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>510</y>
+     <width>450</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Frente: Ninguno</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="lbl_mensaje">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>570</y>
+     <width>700</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="text">
+    <string>Listo.</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

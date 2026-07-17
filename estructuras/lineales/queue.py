@@ -72,3 +72,12 @@ class Queue(object):
         resultado += "\n↑\nFINAL"
 
         return resultado
+    def size(self):
+        contador = 0
+        aux = self.first
+
+        while aux is not None:
+            contador += 1
+            aux = aux.next
+
+        return contador

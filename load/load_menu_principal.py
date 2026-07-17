@@ -6,6 +6,7 @@ from load.load_pila import MenuPila
 from load.load_conversion_infija_posfija import MenuConversionInfijaPosfija 
 from load.load_queue import MenuQueue  
 from load.load_banco import MenuBanco
+from load.load_impresion import MenuImpresion
 
 class MenuPrincipal(QMainWindow):
     def __init__(self):
@@ -33,6 +34,10 @@ class MenuPrincipal(QMainWindow):
         self.actionBanco.triggered.connect(
             self.abrir_banco
         )
+        
+        self.actionCola_Impresion.triggered.connect(
+            self.abrir_impresion
+       )
 
         self.action5_Salir.triggered.connect(
             self.close
@@ -58,3 +63,7 @@ class MenuPrincipal(QMainWindow):
     def abrir_banco(self):
         self.ventana_banco = MenuBanco()
         self.ventana_banco.show()
+        
+    def abrir_impresion(self):
+        self.ventana_impresion = MenuImpresion()
+        self.ventana_impresion.show()
