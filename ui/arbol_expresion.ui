@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DialogExpressionTree</class>
+ <widget class="QDialog" name="DialogExpressionTree">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1119</width>
+    <height>760</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Árbol Binario de Expresiones</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* ===========================
+   QDialog
+=========================== */
+
+QDialog{
+    background-color: #edf2f7;
+    font-family: &quot;Segoe UI&quot;;
+    font-size: 11pt;
+}
+
+
+/* ===========================
+   TITULOS
+=========================== */
+
+QLabel{
+    color:#1e3a5f;
+    font-size:11pt;
+}
+
+QLabel#lblTitulo{
+    font-size:22pt;
+    font-weight:bold;
+    color:white;
+
+    background:qlineargradient(
+        x1:0,y1:0,
+        x2:1,y2:0,
+        stop:0 #1565C0,
+        stop:1 #42A5F5
+    );
+
+    border-radius:12px;
+    padding:15px;
+}
+
+
+/* ===========================
+   LINE EDIT
+=========================== */
+
+QLineEdit{
+
+    background:white;
+
+    border:2px solid #90CAF9;
+
+    border-radius:10px;
+
+    padding:8px;
+
+    color:#263238;
+
+    selection-background-color:#1976D2;
+
+}
+
+QLineEdit:focus{
+
+    border:2px solid #1565C0;
+
+}
+
+
+/* ===========================
+   BOTONES
+=========================== */
+
+QPushButton{
+
+    background:#1976D2;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:10px;
+
+    font-weight:bold;
+
+}
+
+QPushButton:hover{
+
+    background:#2196F3;
+
+}
+
+QPushButton:pressed{
+
+    background:#0D47A1;
+
+}
+
+QPushButton#btnLimpiar{
+
+    background:#FB8C00;
+
+}
+
+QPushButton#btnLimpiar:hover{
+
+    background:#FFA726;
+
+}
+
+QPushButton#btnCerrar{
+
+    background:#D32F2F;
+
+}
+
+QPushButton#btnCerrar:hover{
+
+    background:#EF5350;
+
+}
+
+
+/* ===========================
+   PLAIN TEXT
+=========================== */
+
+QPlainTextEdit{
+
+    background:white;
+
+    border:2px solid #BBDEFB;
+
+    border-radius:10px;
+
+    padding:8px;
+
+    color:#263238;
+
+}
+
+QPlainTextEdit:focus{
+
+    border:2px solid #1976D2;
+
+}
+
+
+/* ===========================
+   GRAPHICS VIEW
+=========================== */
+
+QGraphicsView{
+
+    background:white;
+
+    border:3px solid #1565C0;
+
+    border-radius:15px;
+
+}
+
+
+/* ===========================
+   SPLITTER
+=========================== */
+
+QSplitter::handle{
+
+    background:#90CAF9;
+
+    width:6px;
+
+}
+
+
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+QScrollBar:vertical{
+
+    background:#ECEFF1;
+
+    width:12px;
+
+    border:none;
+
+}
+
+QScrollBar::handle:vertical{
+
+    background:#64B5F6;
+
+    border-radius:5px;
+
+}
+
+QScrollBar::handle:vertical:hover{
+
+    background:#1976D2;
+
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical{
+
+    height:0px;
+
+}
+
+QScrollBar:horizontal{
+
+    background:#ECEFF1;
+
+    height:12px;
+
+    border:none;
+
+}
+
+QScrollBar::handle:horizontal{
+
+    background:#64B5F6;
+
+    border-radius:5px;
+
+}
+
+QScrollBar::handle:horizontal:hover{
+
+    background:#1976D2;
+
+}
+
+QScrollBar::add-line:horizontal,
+QScrollBar::sub-line:horizontal{
+
+    width:0px;
+
+}
+
+
+/* ===========================
+   TOOLTIP
+=========================== */
+
+QToolTip{
+
+    background:#1565C0;
+
+    color:white;
+
+    border:none;
+
+    padding:5px;
+
+}
+
+
+/* ===========================
+   FRAME
+=========================== */
+
+QFrame{
+
+    border-radius:10px;
+
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="lblTitulo">
+     <property name="text">
+      <string>ÁRBOL BINARIO DE EXPRESIONES</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="lblExpresion">
+     <property name="text">
+      <string>Expresión Postfija</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="txtExpresion">
+     <property name="placeholderText">
+      <string>Ejemplo: 3 4 + 5 2 - *</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="btnConstruir">
+       <property name="text">
+        <string>Construir Árbol</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnLimpiar">
+       <property name="text">
+        <string>Limpiar</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnCerrar">
+       <property name="text">
+        <string>Cerrar</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QSplitter" name="splitter">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QWidget" name="leftWidget">
+      <layout class="QVBoxLayout" name="leftLayout">
+       <item>
+        <widget class="QLabel" name="lblInorden">
+         <property name="text">
+          <string>Inorden</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPlainTextEdit" name="txtInorden"/>
+       </item>
+       <item>
+        <widget class="QLabel" name="lblPreorden">
+         <property name="text">
+          <string>Preorden</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPlainTextEdit" name="txtPreorden"/>
+       </item>
+       <item>
+        <widget class="QLabel" name="lblPostorden">
+         <property name="text">
+          <string>Postorden</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPlainTextEdit" name="txtPostorden"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QGraphicsView" name="graphicsView"/>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

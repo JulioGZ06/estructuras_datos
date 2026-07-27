@@ -7,6 +7,7 @@ from load.load_conversion_infija_posfija import MenuConversionInfijaPosfija
 from load.load_queue import MenuQueue  
 from load.load_banco import MenuBanco
 from load.load_impresion import MenuImpresion
+from load.load_arbol_expresion import LoadArbolExpresion
 
 class MenuPrincipal(QMainWindow):
     def __init__(self):
@@ -38,6 +39,8 @@ class MenuPrincipal(QMainWindow):
         self.actionCola_Impresion.triggered.connect(
             self.abrir_impresion
        )
+        
+        self.actionArbol_expresion.triggered.connect(self.abrir_arbol_expresion)
 
         self.action5_Salir.triggered.connect(
             self.close
@@ -67,3 +70,8 @@ class MenuPrincipal(QMainWindow):
     def abrir_impresion(self):
         self.ventana_impresion = MenuImpresion()
         self.ventana_impresion.show()
+        
+    def abrir_arbol_expresion(self):
+
+        ventana = LoadArbolExpresion()
+        ventana.exec_()

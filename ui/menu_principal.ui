@@ -157,6 +157,13 @@ QStatusBar {
      <addaction name="actionPila"/>
      <addaction name="actionQueue"/>
     </widget>
+    <widget class="QMenu" name="menuNo_lineales">
+     <property name="title">
+      <string>No lineales</string>
+     </property>
+     <addaction name="actionArbol_expresion"/>
+    </widget>
+    <addaction name="menuNo_lineales"/>
     <addaction name="menu1_Insertar_inicio"/>
     <addaction name="separator"/>
     <addaction name="action5_Salir"/>
@@ -221,6 +228,11 @@ QStatusBar {
   <action name="actionCola_Impresion">
    <property name="text">
     <string>Impresion</string>
+   </property>
+  </action>
+  <action name="actionArbol_expresion">
+   <property name="text">
+    <string>Arbol de expresion</string>
    </property>
   </action>
  </widget>
