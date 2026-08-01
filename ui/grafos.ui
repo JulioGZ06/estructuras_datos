@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>pageGraphs</class>
+ <widget class="QWidget" name="pageGraphs">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1222</width>
+    <height>766</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Grafos no dirigidos</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* ====================================================================
+   Hoja de Estilo QSS Elegante para Aplicación de Grafos No Dirigidos
+   Compatible con PySide6 y Qt Designer
+   ==================================================================== */
+
+/* --- Estilo Base de la Ventana / Widget Principal --- */
+QWidget#pageGraphs {
+    background-color: #f4f6f9;
+    font-family: 'Segoe UI', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+    color: #2c3e50;
+}
+
+/* --- Título Principal --- */
+QLabel#lblTitle {
+    color: #1a2a3a;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 0px 5px 0px;
+    letter-spacing: 0.5px;
+}
+
+/* --- GroupBox (Vértices y Arcos) --- */
+QGroupBox {
+    background-color: #ffffff;
+    border: 1px solid #e0e6ed;
+    border-radius: 8px;
+    margin-top: 14px;
+    font-weight: bold;
+    font-size: 13px;
+    color: #1a2a3a;
+    padding-top: 15px;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    left: 12px;
+    padding: 2px 8px;
+    background-color: #2c3e50;
+    color: #ffffff;
+    border-radius: 4px;
+}
+
+/* --- Campos de Texto (QLineEdit) --- */
+QLineEdit {
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 13px;
+    color: #1e293b;
+    selection-background-color: #3b82f6;
+}
+
+QLineEdit:focus {
+    border: 2px solid #3b82f6;
+    background-color: #ffffff;
+}
+
+/* --- ComboBox (Desplegables) --- */
+QComboBox {
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 13px;
+    color: #1e293b;
+}
+
+QComboBox:focus, QComboBox:on {
+    border: 2px solid #3b82f6;
+    background-color: #ffffff;
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 25px;
+    border-left-width: 0px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    selection-background-color: #2c3e50;
+    selection-color: #ffffff;
+    padding: 4px;
+}
+
+/* --- Botones de Acción Generales --- */
+QPushButton {
+    background-color: #2c3e50;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 7px 14px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #34495e;
+}
+
+QPushButton:pressed {
+    background-color: #1a2a3a;
+}
+
+/* Botones de Acción Primaria (Agregar Vértice / Agregar Arco) */
+QPushButton#btnAddVertex, QPushButton#btnAddEdge {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+QPushButton#btnAddVertex:hover, QPushButton#btnAddEdge:hover {
+    background-color: #1d4ed8;
+}
+
+QPushButton#btnAddVertex:pressed, QPushButton#btnAddEdge:pressed {
+    background-color: #1e40af;
+}
+
+/* Botones Peligrosos / Eliminar */
+QPushButton#btnDeleteVertex, QPushButton#btnDeleteEdge {
+    background-color: #ef4444;
+    color: #ffffff;
+}
+
+QPushButton#btnDeleteVertex:hover, QPushButton#btnDeleteEdge:hover {
+    background-color: #dc2626;
+}
+
+QPushButton#btnDeleteVertex:pressed, QPushButton#btnDeleteEdge:pressed {
+    background-color: #b91c1c;
+}
+
+/* Botón Limpiar Grafo */
+QPushButton#btnClearGraph {
+    background-color: #64748b;
+    color: #ffffff;
+}
+
+QPushButton#btnClearGraph:hover {
+    background-color: #475569;
+}
+
+/* Botón Redibujar */
+QPushButton#btnRedrawGraph {
+    background-color: #059669;
+    color: #ffffff;
+}
+
+QPushButton#btnRedrawGraph:hover {
+    background-color: #047857;
+}
+
+/* --- Pestañas (QTabWidget) --- */
+QTabWidget::pane {
+    border: 1px solid #e0e6ed;
+    border-radius: 8px;
+    background-color: #ffffff;
+    top: -1px;
+}
+
+QTabBar::tab {
+    background-color: #e2e8f0;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+    border-bottom: none;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    padding: 8px 16px;
+    font-weight: bold;
+    font-size: 12px;
+    margin-right: 2px;
+}
+
+QTabBar::tab:selected {
+    background-color: #ffffff;
+    color: #2563eb;
+    border-top: 3px solid #2563eb;
+    border-bottom: 1px solid #ffffff;
+}
+
+QTabBar::tab:hover:!selected {
+    background-color: #cbd5e1;
+    color: #1e293b;
+}
+
+/* --- Área de Vista Gráfica (QGraphicsView) --- */
+QGraphicsView#graphicsViewGraph {
+    background-color: #fafbfc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+}
+
+/* --- Tablas (QTableWidget) --- */
+QTableWidget {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    gridline-color: #f1f5f9;
+    border-radius: 6px;
+    font-size: 12px;
+    selection-background-color: #e0e7ff;
+    selection-color: #1e1b4b;
+}
+
+QHeaderView::section {
+    background-color: #f1f5f9;
+    color: #334155;
+    font-weight: bold;
+    padding: 6px;
+    border: none;
+    border-bottom: 2px solid #cbd5e1;
+    border-right: 1px solid #e2e8f0;
+}
+
+/* --- Cuadro de Texto Plano (QPlainTextEdit) --- */
+QPlainTextEdit#txtAdjacencyList {
+    background-color: #0f172a;
+    color: #38bdf8;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 13px;
+    border: 1px solid #1e293b;
+    border-radius: 6px;
+    padding: 8px;
+}
+
+/* --- Barra de Estado Inferior --- */
+QLabel#lblGraphStatus {
+    font-size: 13px;
+    font-weight: bold;
+    color: #475569;
+    background-color: #ffffff;
+    padding: 6px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+}
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_main">
+   <item>
+    <widget class="QLabel" name="lblTitle">
+     <property name="font">
+      <font>
+       <pointsize>-1</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">/* ====================================================================
+   Hoja de Estilo QSS Elegante para Aplicación de Grafos No Dirigidos
+   Compatible con PySide6 y Qt Designer
+   ==================================================================== */
+
+/* --- Estilo Base de la Ventana / Widget Principal --- */
+QWidget#pageGraphs {
+    background-color: #f4f6f9;
+    font-family: 'Segoe UI', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+    color: #2c3e50;
+}
+
+/* --- Título Principal --- */
+QLabel#lblTitle {
+    color: #1a2a3a;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px 0px 5px 0px;
+    letter-spacing: 0.5px;
+}
+
+/* --- GroupBox (Vértices y Arcos) --- */
+QGroupBox {
+    background-color: #ffffff;
+    border: 1px solid #e0e6ed;
+    border-radius: 8px;
+    margin-top: 14px;
+    font-weight: bold;
+    font-size: 13px;
+    color: #1a2a3a;
+    padding-top: 15px;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    left: 12px;
+    padding: 2px 8px;
+    background-color: #2c3e50;
+    color: #ffffff;
+    border-radius: 4px;
+}
+
+/* --- Campos de Texto (QLineEdit) --- */
+QLineEdit {
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 13px;
+    color: #1e293b;
+    selection-background-color: #3b82f6;
+}
+
+QLineEdit:focus {
+    border: 2px solid #3b82f6;
+    background-color: #ffffff;
+}
+
+/* --- ComboBox (Desplegables) --- */
+QComboBox {
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 13px;
+    color: #1e293b;
+}
+
+QComboBox:focus, QComboBox:on {
+    border: 2px solid #3b82f6;
+    background-color: #ffffff;
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 25px;
+    border-left-width: 0px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    selection-background-color: #2c3e50;
+    selection-color: #ffffff;
+    padding: 4px;
+}
+
+/* --- Botones de Acción Generales --- */
+QPushButton {
+    background-color: #2c3e50;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 7px 14px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #34495e;
+}
+
+QPushButton:pressed {
+    background-color: #1a2a3a;
+}
+
+/* Botones de Acción Primaria (Agregar Vértice / Agregar Arco) */
+QPushButton#btnAddVertex, QPushButton#btnAddEdge {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+QPushButton#btnAddVertex:hover, QPushButton#btnAddEdge:hover {
+    background-color: #1d4ed8;
+}
+
+QPushButton#btnAddVertex:pressed, QPushButton#btnAddEdge:pressed {
+    background-color: #1e40af;
+}
+
+/* Botones Peligrosos / Eliminar */
+QPushButton#btnDeleteVertex, QPushButton#btnDeleteEdge {
+    background-color: #ef4444;
+    color: #ffffff;
+}
+
+QPushButton#btnDeleteVertex:hover, QPushButton#btnDeleteEdge:hover {
+    background-color: #dc2626;
+}
+
+QPushButton#btnDeleteVertex:pressed, QPushButton#btnDeleteEdge:pressed {
+    background-color: #b91c1c;
+}
+
+/* Botón Limpiar Grafo */
+QPushButton#btnClearGraph {
+    background-color: #64748b;
+    color: #ffffff;
+}
+
+QPushButton#btnClearGraph:hover {
+    background-color: #475569;
+}
+
+/* Botón Redibujar */
+QPushButton#btnRedrawGraph {
+    background-color: #059669;
+    color: #ffffff;
+}
+
+QPushButton#btnRedrawGraph:hover {
+    background-color: #047857;
+}
+
+/* --- Pestañas (QTabWidget) --- */
+QTabWidget::pane {
+    border: 1px solid #e0e6ed;
+    border-radius: 8px;
+    background-color: #ffffff;
+    top: -1px;
+}
+
+QTabBar::tab {
+    background-color: #e2e8f0;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+    border-bottom: none;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    padding: 8px 16px;
+    font-weight: bold;
+    font-size: 12px;
+    margin-right: 2px;
+}
+
+QTabBar::tab:selected {
+    background-color: #ffffff;
+    color: #2563eb;
+    border-top: 3px solid #2563eb;
+    border-bottom: 1px solid #ffffff;
+}
+
+QTabBar::tab:hover:!selected {
+    background-color: #cbd5e1;
+    color: #1e293b;
+}
+
+/* --- Área de Vista Gráfica (QGraphicsView) --- */
+QGraphicsView#graphicsViewGraph {
+    background-color: #fafbfc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+}
+
+/* --- Tablas (QTableWidget) --- */
+QTableWidget {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    gridline-color: #f1f5f9;
+    border-radius: 6px;
+    font-size: 12px;
+    selection-background-color: #e0e7ff;
+    selection-color: #1e1b4b;
+}
+
+QHeaderView::section {
+    background-color: #f1f5f9;
+    color: #334155;
+    font-weight: bold;
+    padding: 6px;
+    border: none;
+    border-bottom: 2px solid #cbd5e1;
+    border-right: 1px solid #e2e8f0;
+}
+
+/* --- Cuadro de Texto Plano (QPlainTextEdit) --- */
+QPlainTextEdit#txtAdjacencyList {
+    background-color: #0f172a;
+    color: #38bdf8;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 13px;
+    border: 1px solid #1e293b;
+    border-radius: 6px;
+    padding: 8px;
+}
+
+/* --- Barra de Estado Inferior --- */
+QLabel#lblGraphStatus {
+    font-size: 13px;
+    font-weight: bold;
+    color: #475569;
+    background-color: #ffffff;
+    padding: 6px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+}</string>
+     </property>
+     <property name="text">
+      <string>Grafos no dirigidos</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_capture">
+     <item>
+      <widget class="QGroupBox" name="groupVertices">
+       <property name="title">
+        <string>Vértices</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_vertices">
+        <item>
+         <widget class="QLineEdit" name="txtVertex">
+          <property name="placeholderText">
+           <string>Nombre del vértice</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnAddVertex">
+          <property name="text">
+           <string>Agregar vértice</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="cmbVertex"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnDeleteVertex">
+          <property name="text">
+           <string>Eliminar vértice</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="groupEdges">
+       <property name="title">
+        <string>Arcos</string>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_edges">
+        <item row="0" column="0">
+         <widget class="QLabel" name="lblOrigin">
+          <property name="text">
+           <string>Vértice 1</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QComboBox" name="cmbOrigin"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="lblDestination">
+          <property name="text">
+           <string>Vértice 2</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QComboBox" name="cmbDestination"/>
+        </item>
+        <item row="2" column="0" colspan="2">
+         <widget class="QPushButton" name="btnAddEdge">
+          <property name="text">
+           <string>Agregar arco</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0" colspan="2">
+         <widget class="QPushButton" name="btnDeleteEdge">
+          <property name="text">
+           <string>Eliminar arco</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QTabWidget" name="tabWidgetGraph">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tabVisual">
+      <attribute name="title">
+       <string>Representación visual</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_tab1">
+       <item>
+        <widget class="QGraphicsView" name="graphicsViewGraph"/>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnRedrawGraph">
+         <property name="text">
+          <string>Redibujar grafo</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabMatrix">
+      <attribute name="title">
+       <string>Matriz de adyacencia</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_tab2">
+       <item>
+        <widget class="QTableWidget" name="tblAdjacencyMatrix">
+         <property name="editTriggers">
+          <set>QAbstractItemView::NoEditTriggers</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabList">
+      <attribute name="title">
+       <string>Lista de adyacencia</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_tab3">
+       <item>
+        <widget class="QPlainTextEdit" name="txtAdjacencyList">
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tabEdges">
+      <attribute name="title">
+       <string>Lista de arcos</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_tab4">
+       <item>
+        <widget class="QTableWidget" name="tblEdges">
+         <property name="editTriggers">
+          <set>QAbstractItemView::NoEditTriggers</set>
+         </property>
+         <column>
+          <property name="text">
+           <string>Vértice 1</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Vértice 2</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_footer">
+     <item>
+      <widget class="QLabel" name="lblGraphStatus">
+       <property name="text">
+        <string>Vértices: 0 | Arcos: 0</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnClearGraph">
+       <property name="text">
+        <string>Limpiar grafo</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

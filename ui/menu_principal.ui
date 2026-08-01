@@ -162,6 +162,7 @@ QStatusBar {
       <string>No lineales</string>
      </property>
      <addaction name="actionArbol_expresion"/>
+     <addaction name="actionGrafos"/>
     </widget>
     <addaction name="menuNo_lineales"/>
     <addaction name="menu1_Insertar_inicio"/>
@@ -233,6 +234,11 @@ QStatusBar {
   <action name="actionArbol_expresion">
    <property name="text">
     <string>Arbol de expresion</string>
+   </property>
+  </action>
+  <action name="actionGrafos">
+   <property name="text">
+    <string>Grafos</string>
    </property>
   </action>
  </widget>

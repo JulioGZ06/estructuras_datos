@@ -8,6 +8,7 @@ from load.load_queue import MenuQueue
 from load.load_banco import MenuBanco
 from load.load_impresion import MenuImpresion
 from load.load_arbol_expresion import LoadArbolExpresion
+from load.load_grafos import LoadGrafos
 
 class MenuPrincipal(QMainWindow):
     def __init__(self):
@@ -42,6 +43,8 @@ class MenuPrincipal(QMainWindow):
         
         self.actionArbol_expresion.triggered.connect(self.abrir_arbol_expresion)
 
+        self.actionGrafos.triggered.connect(self.abrir_grafos)
+
         self.action5_Salir.triggered.connect(
             self.close
         )
@@ -75,3 +78,7 @@ class MenuPrincipal(QMainWindow):
 
         ventana = LoadArbolExpresion()
         ventana.exec_()
+
+    def abrir_grafos(self):
+        self.ventana_grafos = LoadGrafos()
+        self.ventana_grafos.show()

@@ -20,7 +20,7 @@ class ExpressionTree:
                 node = NodeExpression(token)
                 stack.push(node)
 
-            elif token in ['+', '-', '*', '/']:
+            elif token in ['+', '-', '*', '/', '$']:
 
                 if stack.is_empty():
                     print("Expresión inválida")
